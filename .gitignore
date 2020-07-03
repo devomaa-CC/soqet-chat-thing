@@ -4,3 +4,4 @@ json.lua
 rgb.lua
 sha256.lua
 soqet.lua
+string.random.lua
