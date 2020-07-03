@@ -13,19 +13,19 @@ if not http.websocket then
     error("Please enable WebSockets (either by downloading CC:Tweaked and installing it, or enabling it in CC:Tweaked config.")
 end
 if not fs.exists("sha256.lua") then
-    get("https://pastebin.com/raw/qmHNTqad","sha256.lua","SHA256 API")
+    get("https://raw.githubusercontent.com/devomaa-CC/soqet-chat-thing/master/sha256.lua","sha256.lua","SHA256 API")
 end
 if not fs.exists("json.lua") then
-    get("https://raw.githubusercontent.com/rxi/json.lua/master/json.lua","json.lua","JSON API")
+    get("https://raw.githubusercontent.com/devomaa-CC/soqet-chat-thing/master/json.lua","json.lua","JSON API")
 end
 if not fs.exists("soqet.lua") then
-    get("https://raw.githubusercontent.com/Ale32bit/Soqet/master/soqet.lua","soqet.lua","Soqet")
+    get("https://raw.githubusercontent.com/devomaa-CC/soqet-chat-thing/master/soqet.lua","soqet.lua","Soqet")
 end
 if not fs.exists("string.random.lua") then
-    get("https://gist.githubusercontent.com/haggen/2fd643ea9a261fea2094/raw/e9f2ada3154a3d207231d7426e4a00835c298a64/string.random.lua", "string.random.lua","string.random")
+    get("https://raw.githubusercontent.com/devomaa-CC/soqet-chat-thing/master/string.random.lua", "string.random.lua","string.random")
 end
 if not fs.exists("aes.lua") then
-    get("https://gist.githubusercontent.com/devomaa/ca179f070adb8ce44f4982a3a3464de4/raw/80987437d1d128c04446d91b65b2060e5ebe7db2/aeslua.min.lua", "aes.lua", "AES API")
+    get("https://raw.githubusercontent.com/devomaa-CC/soqet-chat-thing/master/aes.lua", "aes.lua", "AES API")
 end
 if not fs.exists("rgb.lua") then
     get("https://pastebin.com/raw/wJdm2Hwg", "rgb.lua", "RGB API")
