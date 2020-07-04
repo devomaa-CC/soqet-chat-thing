@@ -13,7 +13,7 @@ if not http.websocket then
     error("Please enable WebSockets (either by downloading CC:Tweaked and installing it, or enabling it in CC:Tweaked config.")
 end
 if not fs.exists("sha256.lua") then
-    get("https://raw.githubusercontent.com/devomaa-CC/soqet-chat-thing/master/sha256.lua","sha256.lua","SHA256 API")
+    get("https://raw.githubusercontent.com/devomaa-CC/soqet-chat-thing/master/sha-all.min.lua","sha-all.lua","SHA256 API")
 end
 if not fs.exists("json.lua") then
     get("https://raw.githubusercontent.com/devomaa-CC/soqet-chat-thing/master/json.lua","json.lua","JSON API")
@@ -33,7 +33,7 @@ end
 if not fs.exists("hex2rgb.lua") then
     get("https://raw.githubusercontent.com/devomaa-CC/soqet-chat-thing/master/hex2rgb.lua", "hex2rgb.lua", "Hex to RGB conversion API")
 end
-local sha = require("sha256")
+local sha = require("sha-all")
 local json = require("json")
 local soqet = require("soqet")
 os.loadAPI("string.random.lua")
@@ -48,20 +48,20 @@ local function chat(username, password)
     soqet.send("soqetChat", "BACKLOG", {["credintals"] = {["userID"] = userID}})
     while true do
         parallel.waitForAny(function() local channel, message, meta = os.pullEvent("soqet_message")
-        if channel == "soqetChat" and meta.message and meta.user and message == "MESSAGE" and meta.sendToUserHashed == sha(username) then
+        if channel == "soqetChat" and meta.message and meta.user and message == "MESSAGE" and meta.sendToUserHashed == sha.sha512(username) then
             print(aes.decrypt(userID, meta.user) .. ": " .. aes.decrypt(userID, meta.message))
-        end end, function() local input = aes.encrypt(userID, read()) soqet.send("soqetChat", "DISTRIBUTE-MESSAGE", {["message"] = message, ["user"] = aes.encrypt(userID, username)})  end)
+        end end, function() local input = aes.encrypt(userID, read()) soqet.send("soqetChat", json.encode({["action"] = "DISTRIBUTE-MESSAGE", ["message"] = message, ["user"] = aes.encrypt(userID, username)})  end)
     end
 end
 if not fs.exists("soqetCredintals.json") then
     print("Enter your new Soqet-Chat username!")
     local username = read()
     print("Enter your new Soqet-Chat password!")
-    local password = sha(read("*"))
+    local password = sha.sha512(read("*"))
     local credintals = {["username"] = username, ["password"] = password}
     local result = json.encode(credintals)
     soqet.open("soqetChat")
-    soqet.send("soqetChat", "REGISTER", {["data"] = result})
+    soqet.send("soqetChat", json.encode({["action"] = "REGISTER", ["data"] = result}))
     local file = fs.open("soqetCredintals.json","w")
     file.write(result)
     file.close()
