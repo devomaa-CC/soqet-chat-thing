@@ -28,10 +28,10 @@ if not fs.exists("aes.lua") then
     get("https://raw.githubusercontent.com/devomaa-CC/soqet-chat-thing/master/aes.lua", "aes.lua", "AES API")
 end
 if not fs.exists("rgb.lua") then
-    get("https://pastebin.com/raw/wJdm2Hwg", "rgb.lua", "RGB API")
+    get("https://raw.githubusercontent.com/devomaa-CC/soqet-chat-thing/master/rgb.lua", "rgb.lua", "RGB API")
 end
 if not fs.exists("hex2rgb.lua") then
-    get("https://raw.githubusercontent.com/Perkovec/colorise-lua/master/src/colorise.lua", "hex2rgb.lua", "Hex to RGB conversion API")
+    get("https://raw.githubusercontent.com/devomaa-CC/soqet-chat-thing/master/hex2rgb.lua", "hex2rgb.lua", "Hex to RGB conversion API")
 local sha = require("sha256")
 local json = require("json")
 local soqet = require("soqet")
