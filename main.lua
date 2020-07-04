@@ -12,8 +12,8 @@ end
 if not http.websocket then
     error("Please enable WebSockets (either by downloading CC:Tweaked and installing it, or enabling it in CC:Tweaked config.")
 end
-if not fs.exists("sha256.lua") then
-    get("https://raw.githubusercontent.com/devomaa-CC/soqet-chat-thing/master/sha-all.min.lua","sha-all.lua","SHA2 API")
+if not fs.exists("sha_all.lua") then
+    get("https://raw.githubusercontent.com/devomaa-CC/soqet-chat-thing/master/sha_all_min.lua","sha_all.lua","SHA2 API")
 end
 if not fs.exists("json.lua") then
     get("https://raw.githubusercontent.com/devomaa-CC/soqet-chat-thing/master/json.lua","json.lua","JSON API")
@@ -33,7 +33,7 @@ end
 if not fs.exists("hex2rgb.lua") then
     get("https://raw.githubusercontent.com/devomaa-CC/soqet-chat-thing/master/hex2rgb.lua", "hex2rgb.lua", "Hex to RGB conversion API")
 end
-local sha = require("sha-all")
+local sha = require("sha_all")
 local json = require("json")
 local soqet = require("soqet")
 os.loadAPI("string.random.lua")
