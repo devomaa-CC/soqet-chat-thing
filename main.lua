@@ -13,7 +13,7 @@ if not http.websocket then
     error("Please enable WebSockets (either by downloading CC:Tweaked and installing it, or enabling it in CC:Tweaked config.")
 end
 if not fs.exists("sha256.lua") then
-    get("https://raw.githubusercontent.com/devomaa-CC/soqet-chat-thing/master/sha-all.min.lua","sha-all.lua","SHA256 API")
+    get("https://raw.githubusercontent.com/devomaa-CC/soqet-chat-thing/master/sha-all.min.lua","sha-all.lua","SHA2 API")
 end
 if not fs.exists("json.lua") then
     get("https://raw.githubusercontent.com/devomaa-CC/soqet-chat-thing/master/json.lua","json.lua","JSON API")
