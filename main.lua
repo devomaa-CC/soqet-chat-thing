@@ -43,7 +43,7 @@ local function chat(username, password)
     print("Loading Chat...")
     soqet.open("soqetChat")
     math.randomseed(sha.sha512(username .. "|/LAZYSALT-PJALS-1-4-1-2-SOQET-CHAT\\|" .. password))
-    local userID = string.random(32)
+    local userID = stringUtils.random(32)
     soqet.auth(userID)
     soqet.send("soqetChat", "BACKLOG", {["credintals"] = {["userID"] = userID}})
     while true do
