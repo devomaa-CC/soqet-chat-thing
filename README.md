@@ -1,1 +1,1 @@
-Server comming soon(tm)
+Server coming soon(tm)
