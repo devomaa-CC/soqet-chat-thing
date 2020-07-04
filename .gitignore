@@ -3,6 +3,8 @@ aes.lua
 json.lua
 rgb.lua
 sha256.lua
+sha-all.lua
+sha-all.min.lua
 soqet.lua
 string.random.lua
 hex2rgb.lua
