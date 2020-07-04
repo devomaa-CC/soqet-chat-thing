@@ -32,6 +32,7 @@ if not fs.exists("rgb.lua") then
 end
 if not fs.exists("hex2rgb.lua") then
     get("https://raw.githubusercontent.com/devomaa-CC/soqet-chat-thing/master/hex2rgb.lua", "hex2rgb.lua", "Hex to RGB conversion API")
+end
 local sha = require("sha256")
 local json = require("json")
 local soqet = require("soqet")
