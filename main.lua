@@ -57,7 +57,7 @@ if not fs.exists("soqetCredintals.json") then
     local username = read()
     print("Enter your new Soqet-Chat password!")
     local password = sha.sha512(read("*"))
-    local credintals = {["username"] = username, ["password"] = password}
+    local credintals = {["username"] = sha512(username), ["password"] = password}
     local result = json.encode(credintals)
     soqet.open("soqetChat")
     soqet.send("soqetChat", json.encode({["action"] = "REGISTER", ["data"] = result}))
