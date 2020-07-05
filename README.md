@@ -10,7 +10,7 @@ It sends a JSON message on Soqet channel "soqetChat", its something like
 ```json
 {
   "action": "REGISTER",
-  "credintals": { "username":"username", "password":"SHA512 hash of password" }
+  "credintals": { "username":"SHA512 hash of username", "password":"SHA512 hash of password" }
 }
 ```
 #### Logging in:
