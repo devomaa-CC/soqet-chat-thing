@@ -49,7 +49,7 @@ local function chat(username, password)
         parallel.waitForAny(function() local channel, message, meta = os.pullEvent("soqet_message")
         if channel == "soqetChat" and meta.message and meta.user and message == "MESSAGE" and meta.sendToUserHashed == sha.sha512(username) then
             print(aes.decrypt(userID, meta.user) .. ": " .. aes.decrypt(userID, meta.message))
-        end end, function() local input = aes.encrypt(userID, read()) soqet.send("soqetChat", json.encode({["action"] = "DISTRIBUTE-MESSAGE", ["message"] = message, ["user"] = aes.encrypt(userID, username)})  end)
+        end end, function() local input = aes.encrypt(userID, read()) soqet.send("soqetChat", json.encode({["action"] = "DISTRIBUTE-MESSAGE", ["message"] = message, ["user"] = aes.encrypt(userID, username)}))  end)
     end
 end
 if not fs.exists("soqetCredintals.json") then
